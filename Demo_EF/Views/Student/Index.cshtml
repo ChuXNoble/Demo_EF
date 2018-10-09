@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Demo_EF.Models.Student>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Students</h2>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>S/N</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    @foreach (var student in Model)
+    {
+        <tr>
+            <td>@student.Id</td>
+            <td>@student.Stud_Name</td>
+            <td>@student.Course.Course_Name</td>
+            <td>@Html.ActionLink("Details","Details",new { id = student.Id})</td>
+        </tr>
+    }
+</table>
+

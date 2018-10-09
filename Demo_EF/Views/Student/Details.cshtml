@@ -1,0 +1,17 @@
+﻿@model Demo_EF.Models.Student
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Stud_Name's Details</h2>
+<ul>
+    <li>@Model.Email</li>
+    <li>@Model.Course.Course_Name</li>
+    <li>@if (Model.Course.Semester > 1)
+    {
+        @Model.Course.Semester <span>Semesters</span>   
+    } else {
+        @Model.Course.Semester <span>Semester</span>
+    }</li>
+</ul>
+

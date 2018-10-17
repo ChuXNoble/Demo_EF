@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using Demo_EF.ViewModels;
 
 namespace Demo_EF.Controllers
 {
@@ -33,6 +34,47 @@ namespace Demo_EF.Controllers
                 return HttpNotFound();
 
             return View(student);
+        }
+        public ActionResult New()
+        {
+            var courses = _context.Courses.ToList();
+            var viewModel = new StudentFormViewModel()
+            {                
+                Courses = courses
+            };
+            return View("StudentForm",viewModel);
+        }
+        public ActionResult Save(Student student)
+        {
+            if(student.Id == 0)
+            {
+                _context.Students.Add(student);
+            }
+            else
+            {
+                var studentInDb = _context.Students.Single(s => s.Id == student.Id);
+                studentInDb.Stud_Name = student.Stud_Name;
+                studentInDb.Email = student.Email;
+                studentInDb.CourseId = student.CourseId;
+            }
+            _context.SaveChanges();
+            
+
+            return RedirectToAction("Index","Student");
+        }
+        public ActionResult Edit(int id)
+        {
+            var student = _context.Students.SingleOrDefault(s => s.Id == id);
+
+            if (student == null)
+                return HttpNotFound();
+
+            var viewModel = new StudentFormViewModel
+            {
+                Student = student,
+                Courses = _context.Courses.ToList()
+            };
+            return View("StudentForm",viewModel);
         }
     }
 }

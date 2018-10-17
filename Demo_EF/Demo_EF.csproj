@@ -170,15 +170,12 @@
     <Compile Include="Migrations\201810081127244_AddCourses1.Designer.cs">
       <DependentUpon>201810081127244_AddCourses1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810081131194_deleteCourses.cs" />
-    <Compile Include="Migrations\201810081131194_deleteCourses.Designer.cs">
-      <DependentUpon>201810081131194_deleteCourses.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AptechDb.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\StudentFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -221,6 +218,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\Details.cshtml" />
+    <Content Include="Views\Student\StudentForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -247,9 +245,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810081127244_AddCourses1.resx">
       <DependentUpon>201810081127244_AddCourses1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810081131194_deleteCourses.resx">
-      <DependentUpon>201810081131194_deleteCourses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

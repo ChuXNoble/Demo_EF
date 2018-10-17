@@ -4,6 +4,13 @@
 }
 
 <h2>All Students</h2>
+@using (Html.BeginForm("New", "Student"))
+{
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit">New Student</button>
+    </div>
+}
+
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -11,16 +18,18 @@
             <th>Name</th>
             <th>Course</th>
             <th>Details</th>
+            <th>Edit</th>
         </tr>
     </thead>
     @foreach (var student in Model)
     {
-        <tr>
-            <td>@student.Id</td>
-            <td>@student.Stud_Name</td>
-            <td>@student.Course.Course_Name</td>
-            <td>@Html.ActionLink("Details","Details",new { id = student.Id})</td>
-        </tr>
+    <tr>
+        <td>@student.Id</td>
+        <td>@student.Stud_Name</td>
+        <td>@student.Course.Course_Name</td>
+        <td>@Html.ActionLink("Details", "Details", new { id = student.Id })</td>
+        <td>@Html.ActionLink("Edit", "Edit", new { id = student.Id })</td>
+    </tr>
     }
 </table>
 
